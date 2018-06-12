@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="LivrariaBlumenau">
+<head>
+    <meta charset="UTF-8">
+    <title>Livraria Blumenau</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/livros.controller.js"></script>
+    <script src="scripts/livro.directive.js"></script>
+    <script src="scripts/livros.factory.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="LivrosController">
+        <div class="lista-livros">
+            <div aw-livro="f" fn-fechar="removerLivro(f.id)" ng-repeat="f in livros"></div>
+        </div>
+        <hr>
+        <form name="formulario" class="form-livros" ng-submit="criarLivro()">
+            <h1>Adicionar Livro</h1>
+            <div class="form-campo">
+                <label for="Nome">Nome</label>
+                <input type="text" id="Nome" name="Nome" ng-model="novoLivro.Nome">
+            </div>
+            <div class="form-campo">
+                <label for="Autor">Autor</label>
+                <input type="text" id="Autor" name="Autor" ng-model="novoLivro.Autor">
+            </div>
+            <div class="form-campo pequeno">
+                <label for="Ano">Ano</label>
+                <input type="number" id="Ano" name="Ano" ng-model="novoLivro.Ano">
+            </div>
+            <div class="form-campo medio">
+                <label for="Editora">Editora</label>
+                <input type="text" id="Editora" name="Editora" ng-model="novoLivro.Editora">
+            </div>
+            <div class="form-campo">
+                <label for="ISBN">ISBN</label>
+                <input type="text" id="ISBN" name="ISBN" ng-model="novoLivro.ISBN">
+            </div>
+            <div class="form-campo">
+                <label for="Descricao">Descrição</label>
+                <textarea id="Descricao" name="Descricao" ng-model="novoLivro.Descricao" rows="5"></textarea>
+            </div>
+            <footer>
+                <button type="reset">Limpar</button>
+                <button type="submit">Salvar</button>
+            </footer>
+        </form>
+    </div>
+</body>
+</html>
