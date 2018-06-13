@@ -24,9 +24,10 @@
 				ISBN: $scope.novoLivro.ISBN
 			};
 
-			Livros.inserir(novoLivro).then(carregarLivros);
-
-			//$scope.novoLivro = {};
+            if (novoLivro.Id == 0)
+                Livros.inserir(novoLivro).then(carregarLivros);
+			else
+                Livros.atualizar(novoLivro).then(carregarLivros);
 		}
 
 		$scope.removerLivro = function (id) {
@@ -34,6 +35,5 @@
 		}
 
 		carregarLivros();
-
 	});
 })();

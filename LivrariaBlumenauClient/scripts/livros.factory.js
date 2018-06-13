@@ -24,6 +24,11 @@ angular.module("LivrariaBlumenau").factory("Livros", function($q, $http){
 
 			return $http.put("http://localhost:63761/api/v1/create/", livro);
 		},
+		atualizar: function (livro) {
+		    var id = livro.id;
+
+		    return $http.put("http://localhost:63761/api/v1/update/", livro);
+		},
 		remover: function(id) {
 			return $http.post("http://localhost:63761/api/v1/delete/" + id);
 		}
